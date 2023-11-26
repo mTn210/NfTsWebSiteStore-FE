@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import classes from "./AvailableItems.module.css";
-import {
-  faHeart,
-  faShoppingCart,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShoppingCart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   addToFavorite,
@@ -31,29 +27,28 @@ const AvailableItems = ({
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const fetchItems = () => {
+    const fetchItems = async () => {
       if (userName) {
-        getAllItems({ userName })
-          .then((response) => {
-            setItems(response.data);
-          })
-          .catch((error) => {
-            console.error("Error fetching items:", error);
-          });
+        try {
+          const response = await getAllItems({ userName });
+          setItems(response.data);
+        } catch (error) {
+          console.error("Error fetching items:", error);
+        }
       }
     };
 
     fetchItems();
   }, [userName, setItems]);
 
-  const importImage = (imageName) => {
+  const importImage = useCallback((imageName) => {
     try {
       return require(`../../../images/${imageName}.png`);
     } catch (err) {
       console.error("Error importing image: ", err);
       return null;
     }
-  };
+  }, []);
 
   const handleAddToFavorite = async (itemId) => {
     if (!isLoggedIn) {
@@ -87,7 +82,7 @@ const AvailableItems = ({
       };
 
       await addToFavorite(favoriteItem);
-      setFavoriteItems([...favoriteItems, itemToAdd.id]); // Update favorite items with the correct itemId
+      setFavoriteItems([...favoriteItems, itemToAdd.id]); 
 
       setMessage(`${favoriteItem.item.name} added to favorites!`);
       setTimeout(() => setMessage(""), 3000);
@@ -123,27 +118,19 @@ const AvailableItems = ({
           setItemQuantities(newQuantities);
         } else {
           setPendingOrderId(null);
-          if (!pendingOrderId) {
-            setItemQuantities({});
-          }
+          setItemQuantities({});
         }
       })
       .catch((error) => {
         console.error("Error fetching updated orders:", error);
       });
-  }, [
-    userName,
-    pendingOrderId,
-    setItemQuantities,
-    setOrders,
-    setPendingOrderId,
-  ]);
+  }, [userName, setItemQuantities, setOrders, setPendingOrderId]);
 
   useEffect(() => {
     updateOrdersAndItems();
   }, [updateOrdersAndItems]);
 
-  const handleAddItemToOrder = (item) => {
+  const handleAddItemToOrder = useCallback((item) => {
     if (!user || !item.id) {
       console.error("Authentication context is not set properly.");
       return;
@@ -153,15 +140,15 @@ const AvailableItems = ({
       : addItemToOrder(userName, item, "PENDING");
 
     orderFunction
-      .then((response) => {
+      .then(() => {
         updateOrdersAndItems();
       })
       .catch((error) => {
         console.error("Error updating/creating order:", error);
       });
-  };
+  }, [user, userName, pendingOrderId, updateOrdersAndItems]);
 
-  const handleAddToCart = (item) => {
+  const handleAddToCart = useCallback((item) => {
     const existingQuantity = itemQuantities[item.id] || 0;
     const quantityToAdd = 1;
 
@@ -172,14 +159,12 @@ const AvailableItems = ({
     }
 
     if (existingQuantity + quantityToAdd > item.stock) {
-      setMessage(
-        `Sorry, only ${item.stock} units of ${item.name} are available.`
-      );
+      setMessage(`Sorry, only ${item.stock} units of ${item.name} are available.`);
       setTimeout(() => setMessage(""), 3000);
       return;
     }
 
-    setItemQuantities((prevQuantities) => ({
+    setItemQuantities(prevQuantities => ({
       ...prevQuantities,
       [item.id]: existingQuantity + quantityToAdd,
     }));
@@ -188,39 +173,31 @@ const AvailableItems = ({
       ...item,
       quantity: existingQuantity + quantityToAdd,
     });
+
     setMessage(`${item.name} added to cart!`);
     setTimeout(() => setMessage(""), 3000);
-  };
+  }, [itemQuantities, handleAddItemToOrder,setItemQuantities]);
 
-  const handleRemoveItemFromOrder = (itemId) => {
-    const existingQuantity = itemQuantities[itemId];
-
-    if (!existingQuantity || existingQuantity <= 0) {
+  const handleRemoveItemFromOrder = useCallback((itemId) => {
+    if (!itemQuantities[itemId] || itemQuantities[itemId] <= 0) {
       setMessage("No items to remove from the order.");
       setTimeout(() => setMessage(""), 3000);
       return;
     }
-
-    const newQuantity = existingQuantity - 1;
-    setItemQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [itemId]: newQuantity > 0 ? newQuantity : 0,
-    }));
-
-    if (newQuantity > 0) {
-      handleAddItemToOrder({ id: itemId, quantity: newQuantity });
-    } else {
-      removeItemFromOrder(pendingOrderId, itemId)
-        .then(() => {
-          setMessage("Item removed from cart.");
-          setTimeout(() => setMessage(""), 3000);
-          updateOrdersAndItems();
-        })
-        .catch((error) => {
-          console.error("Error removing item from order:", error);
-        });
-    }
-  };
+  
+   
+    removeItemFromOrder(pendingOrderId, itemId)
+      .then(() => {
+        setMessage("Item removed from cart.");
+        setTimeout(() => setMessage(""), 3000);
+        updateOrdersAndItems();
+      })
+      .catch((error) => {
+        console.error("Error removing item from order:", error);
+      });
+  }, [itemQuantities, pendingOrderId, updateOrdersAndItems]);
+  
+  
 
   const [hoveredItemId, setHoveredItemId] = useState(null);
 
