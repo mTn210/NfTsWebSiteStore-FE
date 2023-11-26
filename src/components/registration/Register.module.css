@@ -1,0 +1,163 @@
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 200px auto;
+  margin-top: 80px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+
+
+label,
+.submit {
+  margin-top: 1rem;
+  color: white;
+}
+
+.submit {
+  padding: 0.5rem;
+}
+
+
+.submit:enabled {
+  background-color: #0F1111; 
+  color: #FFD700; 
+  border: 1px solid #FFD700; 
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 6px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover and focus styles for the enabled button */
+.submit:enabled:hover,
+.submit:enabled:focus {
+  background-color: #232F3E; 
+  color: #FFD700;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
+  transform: translateY(-3px); 
+}
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.backButton {
+  background-color: #0F1111; 
+  color: #FFD700; 
+  border: 1px solid #FFD700; 
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 6px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.backButton:hover {
+  background-color: #232F3E; 
+  color: #FFD700;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
+  transform: translateY(-3px); 
+}
+
+.backButton:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+.backButton .faArrowLeft {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+
+.imgg {
+  display: block;
+  max-width: 700px;
+  margin: 0 auto 10px;
+  height: auto;
+  margin-left: 38%;
+}

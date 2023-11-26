@@ -1,0 +1,106 @@
+.favoriteItemsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .favoriteItemsList li {
+    list-style: none;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .favoriteItemsList li:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .favoriteItemsList img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .favoriteItemsList h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .favoriteItemsList p {
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .favoriteItemsList button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .favoriteItemsList button:hover {
+    background-color: #e33e3e;
+  }
+  
+  
+  .backButton {
+    background-color: #0F1111; 
+    color: #FFD700; 
+    border: 1px solid #FFD700; 
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 6px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .backButton:hover {
+    background-color: #232F3E; 
+    color: #FFD700;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
+    transform: translateY(-3px); 
+  }
+  
+  .backButton:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+  }
+  
+  .backButton .faArrowLeft {
+    margin-right: 8px;
+    font-size: 1.2em;
+  }
+  
+  
+  
+  .imgg {
+    display: block;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .favoriteItemsList li {
+      width: 90%;
+    }
+  }
+  

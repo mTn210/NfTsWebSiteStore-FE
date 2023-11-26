@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #000000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 20px;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem,
+  .nav-links {
+    margin-left: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  
+  .nav-links {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .navItem a:hover,
+  .nav-links:hover {
+    color: #e1ad01;
+  }
+  
+  
+    .nav-links {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  
+  

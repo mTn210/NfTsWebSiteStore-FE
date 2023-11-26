@@ -1,0 +1,186 @@
+.orderList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.order {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 300px;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.orderClosed {
+  background-color: #a1a1a1;
+}
+
+.orderPending {
+  background-color: #FFD700; 
+}
+
+.orderItem,
+.totalPrice {
+  margin-top: 10px;
+}
+.order {
+  overflow: auto;
+}
+
+.itemList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.itemList li {
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+.itemList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.itemList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.itemList::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.itemList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.trashbutton {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.trashbutton:hover {
+  background-color: #ff3333;
+}
+
+.yourButtonStyle {
+  background-color: #797979;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.yourButtonStyle:hover {
+  background-color: #3a3a3a;
+}
+
+@media (max-width: 768px) {
+  .orderList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order {
+    width: 90%;
+  }
+}
+
+.backButton {
+  background-color: #414141;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  gap: 10px;
+}
+.backButton {
+  background-color: #0F1111; 
+  color: #FFD700; 
+  border: 1px solid #FFD700; 
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 6px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.backButton:hover {
+  background-color: #232F3E; 
+  color: #FFD700;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); 
+  transform: translateY(-3px); 
+}
+
+.backButton:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+.backButton .faArrowLeft {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+
+
+.inactive {
+  cursor: default;
+}
+
+.imgg {
+  display: block;
+  width: 700px;
+  height: 180px;
+  margin-left: 38%;
+}
+
+
+
+
+
+.centeredMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  font-size: 3.5rem; /* Adjust font size as needed */
+  color: #ffffff; /* Text color */
+}
+
+.centeredMessage p {
+  margin: 20px 0; /* Adjust spacing around the message */
+}

@@ -1,0 +1,88 @@
+.about-container {
+    background-color: unset;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-left: 27%;
+    margin-top: 0%;
+  }
+  
+  .about-title {
+    font-size: 36px;
+    color: chartreuse;
+    margin-bottom: 20px;
+  }
+  
+  .about-text {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-link {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .about-link:hover {
+    color: #0050a0;
+  }
+  
+  .about-container {
+    border: 1px solid #ddd;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 15px;
+    }
+  }
+  
+  .backButton {
+    background-color: #0f1111;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .backButton:hover {
+    background-color: #232f3e;
+    color: #ffd700;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+  }
+  
+  .backButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+  }
+  
+  .backButton .faArrowLeft {
+    margin-right: 8px;
+    font-size: 1.2em;
+  }
+  
+  .imgg {
+    display: block;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    height: auto;
+    margin-left: 30%;
+  }
+  
